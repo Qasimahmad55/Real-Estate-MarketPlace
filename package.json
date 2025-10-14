@@ -1,0 +1,26 @@
+{
+  "name": "real-estate-marketplace",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon Backend/index.js",
+    "start": "node Backend/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Qasimahmad55/Real-Estate-MarketPlace.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Qasimahmad55/Real-Estate-MarketPlace/issues"
+  },
+  "homepage": "https://github.com/Qasimahmad55/Real-Estate-MarketPlace#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^5.1.0",
+    "nodemon": "^3.1.10"
+  }
+}
