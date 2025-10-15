@@ -1,6 +1,6 @@
 import User from '../models/user.model.js'
 import bcryptjs from 'bcryptjs';
-export const signup = async (req, res) => {
+export const signup = async (req, res, next) => {
     try {
         const { username, email, password } = req.body
         const hashedPassword = await bcryptjs.hash(password, 10)
@@ -20,8 +20,6 @@ export const signup = async (req, res) => {
                 }
             )
     } catch (error) {
-        res.json({
-            error: error.message
-        })
+        next(error)
     }
 }
