@@ -17,7 +17,7 @@ function Profile() {
           className='p-3 border border-gray-300 rounded-lg' />
         <button className='bg-slate-700 text-white rounded-lg p-3 uppercase hover:opacity-90 disabled:opacity-70' >update</button>
       </form>
-      <div className='flex justify-between mt-5'>
+      <div className='flex justify-between mt-5'> 
         <span className='text-red-700 cursor-pointer'>Delete account</span>
         <span className='text-red-700 cursor-pointer'>Sign out</span>
       </div>
