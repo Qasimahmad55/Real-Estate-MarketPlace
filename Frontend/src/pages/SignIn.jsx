@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { signInStart, signInSuccess, signInFailure } from '../redux/user/userSlice.js'
+import Oauth from '../components/Oauth.jsx'
 function SignUp() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -31,7 +32,7 @@ function SignUp() {
         }
       )
       const data = await res.json()
-      console.log(data);
+      // console.log(data); 
 
       if (data.success === false) {
         dispatch(signInFailure(data.message))
@@ -53,10 +54,11 @@ function SignUp() {
         <input type="email" placeholder='Email' className='border p-3 rounded-lg' id='email' onChange={handleChange} />
         <input type="password" placeholder='Password' className=' p-3 rounded-lg border' id='password' onChange={handleChange} />
         <button disabled={loading} className='bg-slate-700 text-white  p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80'>{loading ? "Loading..." : "Sign In"}</button>
+        <Oauth />
       </form>
       <div className='flex gap-2 mt-5'>
         <p>Don't have an account?</p>
-        <Link to={"sign-in"}>
+        <Link to={"/sign-up"}>
           <span className='text-blue-700'>Sign Up</span>
         </Link>
       </div>
