@@ -6,21 +6,14 @@ const client = new Client()
 const storage = new Storage(client)
 export const uploadToAppwrite = async (file) => {
     return await storage.createFile(
-        {
-            bucketId: import.meta.env.VITE_BUCKET_ID,
-            fileId: ID.unique(),
-            file,
-        }
-
+        import.meta.env.VITE_BUCKET_ID,
+        ID.unique(),
+        file,
     )
 }
-
-export const getFile = (fileId) => {
-    return storage.getFileView(
-        {
-            bucketId: import.meta.env.VITE_BUCKET_ID,
-            fileId,
-        }
-
+export const getFile = async (fileId) => {
+    return await storage.getFileView(
+        import.meta.env.VITE_BUCKET_ID,
+        fileId,
     )
 }

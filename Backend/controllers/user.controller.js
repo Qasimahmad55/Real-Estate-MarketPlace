@@ -20,16 +20,17 @@ const updateUser = async (req, res, next) => {
                     username: req.body.username,
                     email: req.body.email,
                     password: req.body.password,
+                    avatar: req.body.avatar
                 }
             },
             {
                 new: true
             },
         )
-        const { password, ...rest } = updatedUser._doc;
+        // const { password, ...rest } = updatedUser._doc
         res
             .status(200)
-            .json(rest)
+            .json(updatedUser)
     } catch (error) {
         next(error)
     }
