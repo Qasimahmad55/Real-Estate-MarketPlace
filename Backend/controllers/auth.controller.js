@@ -33,7 +33,7 @@ export const signin = async (req, res, next) => {
         if (!validUser) return next(errorHandler(404, 'User not found'))
         const validPassword = await bcryptjs.compare(password, validUser.password)
         if (!validPassword) return next(errorHandler(404, 'Invalid Password'))
-        const token = jwt.sign({id:validUser._id}, process.env.JWT_SECRET)
+        const token = jwt.sign({ id: validUser._id }, process.env.JWT_SECRET)
         const { password: pass, ...rest } = validUser._doc
         res.cookie('access_token', token, { httpOnly: true })
             .status(200)
@@ -81,6 +81,14 @@ export const google = async (req, res, next) => {
                 .status(200)
                 .json(rest)
         }
+    } catch (error) {
+        next(error)
+    }
+}
+export const signOut = async (req, res) => {
+    try {
+        res.clearCookie("access_token")
+        res.status(200).json("User has been logged out successfully")
     } catch (error) {
         next(error)
     }
