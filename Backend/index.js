@@ -22,7 +22,7 @@ app.listen(3000, () => {
     console.log("Server is running at 3000");
 })
 app.use((error, req, res, next) => {
-    const statusCode = error.statusCode
+    const statusCode = error.statusCode || 500
     const message = error.message
     return res
         .status(statusCode)
