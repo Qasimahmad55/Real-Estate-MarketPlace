@@ -18,11 +18,13 @@ function Profile() {
     avatar: currentUser.avatar || '',
     password: ''
   })
+  // console.log(formData.avatar);
+  // console.log(currentUser.avatar);
 
   // console.log(currentUser);
   // console.log(formData);
   // console.log(avatarUrl);
-  
+
   const handleUploadImage = async (e) => {
     try {
       const file = e.target.files[0]
@@ -31,6 +33,8 @@ function Profile() {
         const fileId = response.$id
         // console.log(response);
         const gettingFile = await getFile(fileId)
+        // console.log(fileId);
+
         // console.log(gettingFile);
         setFormData(prev => ({ ...prev, avatar: gettingFile }))
       }
@@ -139,7 +143,7 @@ function Profile() {
         />
         <img
           onClick={() => fileRef.current.click()}
-          src={formData.avatar} alt="Profile Image"
+          src={formData.avatar || currentUser.avatar} alt="Profile Image"
           className='rounded-full h-24 w-24 object-cover cursor-pointer self-center mt-2'
         />
         <input
