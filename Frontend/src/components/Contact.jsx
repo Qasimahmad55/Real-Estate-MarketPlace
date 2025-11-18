@@ -32,7 +32,7 @@ function Contact({ listing }) {
                             onChange={(e) => setMessage(e.target.value)}
                             className='w-full border border-gray-300 p-3 rounded-lg'
                         ></textarea>
-                        <Link to={`mailto:${landlord.email}?subject=Regarding${listing.name}&body=${message}`}
+                        <Link to={`mailto:${landlord.email}?subject=Regarding ${listing.name}&body=${message}`}
                             className='bg-slate-700 text-white text-center p-3 uppercase rounded-lg hover:opacity-95'
                         >
                             Send Message
