@@ -28,7 +28,7 @@ app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'Backend', 'dist', 'index.html'))
 })
 
-app.listen(3000, () => {
+app.listen(3000 || process.env.PORT, () => {
     console.log("Server is running at 3000");
 })
 app.use((error, req, res, next) => {
