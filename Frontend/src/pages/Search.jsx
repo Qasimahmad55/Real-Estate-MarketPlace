@@ -46,7 +46,7 @@ function Search() {
         }
         const fetchListing = async () => {
             setLoading(true)
-            showMore(false)
+            setShowMore(false)
             const searchQuery = urlparams.toString()
             const res = await fetch(`/api/listing/get?${searchQuery}`)
             const data = await res.json()
