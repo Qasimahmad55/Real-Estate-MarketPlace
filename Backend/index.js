@@ -7,16 +7,14 @@ import userRouter from './routes/user.route.js'
 import authRouter from './routes/auth.route.js'
 import listingRouter from './routes/listing.route.js'
 import path from 'path'
-import { fileURLToPath } from 'url';
 dotenv.config(
     {
         path: "./.env"
     }
 )
 connectDb()
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-// const __dirname = path.resolve()
+
+const __dirname = path.resolve()
 
 
 
@@ -28,7 +26,7 @@ app.use("/api/listing", listingRouter)
 
 app.use(express.static(path.join(__dirname, 'Frontend', 'dist')))
 
-app.get('/*', (req, res) => {
+app.get('/:catchAll(.*)', (req, res) => {
     res.sendFile(path.join(__dirname, 'Frontend', 'dist', 'index.html'))
 })
 
