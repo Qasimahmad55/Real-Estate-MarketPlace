@@ -23,9 +23,10 @@ app.use("/api/user", userRouter)
 app.use("/api/auth", authRouter)
 app.use("/api/listing", listingRouter)
 
-app.use(express.static(path.join(__dirname, '/Backend/dist')))
-app.get('/*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'Backend', 'dist', 'index.html'))
+app.use(express.static(path.join(__dirname, '/Frontend/dist')))
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'Frontend', 'dist', 'index.html'))
 })
 
 app.listen(3000 || process.env.PORT, () => {
