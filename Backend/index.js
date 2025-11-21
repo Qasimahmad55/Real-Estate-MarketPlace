@@ -26,7 +26,7 @@ app.use("/api/listing", listingRouter)
 
 app.use(express.static(path.join(__dirname, 'Frontend', 'dist')))
 
-app.get('/:catchAll(.*)', (req, res) => {
+app.get('/*', (req, res) => {
     res.sendFile(path.join(__dirname, 'Frontend', 'dist', 'index.html'))
 })
 
