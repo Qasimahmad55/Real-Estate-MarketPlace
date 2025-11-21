@@ -24,7 +24,7 @@ app.use("/api/auth", authRouter)
 app.use("/api/listing", listingRouter)
 
 app.use(express.static(path.join(__dirname, '/Backend/dist')))
-app.get('*', (req, res) => {
+app.get('/*', (req, res) => {
     res.sendFile(path.join(__dirname, 'Backend', 'dist', 'index.html'))
 })
 
