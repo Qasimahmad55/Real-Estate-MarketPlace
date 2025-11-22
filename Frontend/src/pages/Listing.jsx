@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { Swiper, SwiperSlide } from 'swiper/react'
+const API_BASE = import.meta.env.VITE_BACKEND_ENDPOINT
 import SwiperCore from 'swiper'
 import { Navigation } from 'swiper/modules'
 import 'swiper/css/bundle'
@@ -25,7 +26,7 @@ function Listing() {
                 // console.log(params.listingId);
 
                 setLoading(true)
-                const res = await fetch(`/api/listing/get/${params.listingId}`)
+                const res = await fetch(`${API_BASE}/api/listing/get/${params.listingId}`)
                 const data = await res.json()
                 // console.log(data);
 

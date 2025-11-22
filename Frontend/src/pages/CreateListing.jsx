@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { uploadToAppwrite, getFile } from '../utils/appwrite'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+const API_BASE = import.meta.env.VITE_BACKEND_ENDPOINT
 function CreateListing() {
     const navigate = useNavigate()
     const { currentUser } = useSelector(state => state.user)
@@ -88,7 +89,7 @@ function CreateListing() {
             if (+formData.regularPrice < +formData.discountPrice) return setError("Discount Price must be lower than the Regular Price")
             setLoading(true)
             setError(false)
-            const res = await fetch("/api/listing/create",
+            const res = await fetch(`${API_BASE}/api/listing/create`,
                 {
                     method: "POST",
                     headers: { 'Content-Type': 'application/json' },

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import ListingItem from '../components/ListingItem'
+const API_BASE = import.meta.env.VITE_BACKEND_ENDPOINT
 function Search() {
     const navigate = useNavigate()
     const [loading, setLoading] = useState(false)
@@ -48,7 +49,7 @@ function Search() {
             setLoading(true)
             setShowMore(false)
             const searchQuery = urlparams.toString()
-            const res = await fetch(`/api/listing/get?${searchQuery}`)
+            const res = await fetch(`${API_BASE}/api/listing/get?${searchQuery}`)
             const data = await res.json()
             if (data.length > 8) {
                 setShowMore(true)
@@ -98,7 +99,7 @@ function Search() {
         const urlParams = new URLSearchParams(location.search)
         urlParams.set('startIndex', startIndex)
         const searchQuery = urlParams.toString()
-        const res = await fetch(`/api/listing/get${searchQuery}`)
+        const res = await fetch(`${API_BASE}/api/listing/get${searchQuery}`)
         const data = await res.json()
         if (data.length < 9) {
             setShowMore(false)

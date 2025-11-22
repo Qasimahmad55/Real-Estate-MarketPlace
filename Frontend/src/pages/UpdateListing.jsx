@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { uploadToAppwrite, getFile } from '../utils/appwrite'
 import { useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom'
+const API_BASE = import.meta.env.VITE_BACKEND_ENDPOINT
 function CreateListing() {
     const navigate = useNavigate()
     const params = useParams()
@@ -31,7 +32,7 @@ function CreateListing() {
         const fetching = async () => {
             const listingId = params.listingId
             // console.log(listingId);
-            const res = await fetch(`/api/listing/get/${listingId}`)
+            const res = await fetch(`${API_BASE}/api/listing/get/${listingId}`)
             const data = await res.json()
             setFormData(data)
             if (data.success === false) {
@@ -102,7 +103,7 @@ function CreateListing() {
             if (+formData.regularPrice < +formData.discountPrice) return setError("Discount Price must be lower than the Regular Price")
             setLoading(true)
             setError(false)
-            const res = await fetch(`/api/listing/update/${params.listingId}`,
+            const res = await fetch(`${API_BASE}/api/listing/update/${params.listingId}`,
                 {
                     method: "POST",
                     headers: { 'Content-Type': 'application/json' },

@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { signInStart, signInSuccess, signInFailure } from '../redux/user/userSlice.js'
 import Oauth from '../components/Oauth.jsx'
+const API_BASE = import.meta.env.VITE_BACKEND_ENDPOINT
 function SignUp() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -20,7 +21,7 @@ function SignUp() {
     e.preventDefault()
     try {
       dispatch(signInStart())
-      const res = await fetch('/api/auth/signin',
+      const res = await fetch(`${API_BASE}/api/auth/signin`,
         {
           method: "POST",
           headers:

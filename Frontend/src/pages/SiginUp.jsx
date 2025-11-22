@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import Oauth from '../components/Oauth'
+const API_BASE = import.meta.env.VITE_BACKEND_ENDPOINT
 function SignUp() {
     const navigate = useNavigate()
     const [formData, setformData] = useState({})
@@ -18,7 +19,7 @@ function SignUp() {
         e.preventDefault()
         try {
             setLoading(true)
-            const res = await fetch('/api/auth/signup',
+            const res = await fetch(`${API_BASE}/api/auth/signup`,
                 {
                     method: "POST",
                     headers:
