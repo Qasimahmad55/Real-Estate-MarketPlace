@@ -9,7 +9,6 @@ import listingRouter from './routes/listing.route.js'
 // import path from 'path'
 dotenv.config(
     {
-        path: "./.env",
         origin: '*'
     }
 )
