@@ -10,7 +10,7 @@ import cors from 'cors'
 // import path from 'path'
 app.use(cors(
     {
-        origin: 'https://real-estate-market-place-ipq7.vercel.app'
+        origin: '*'
     }
 ))
 dotenv.config(
