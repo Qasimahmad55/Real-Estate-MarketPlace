@@ -6,10 +6,16 @@ import { connectDb } from './connectDb.js'
 import userRouter from './routes/user.route.js'
 import authRouter from './routes/auth.route.js'
 import listingRouter from './routes/listing.route.js'
+import cors from 'cors'
 // import path from 'path'
-dotenv.config(
+app.use(cors(
     {
         origin: '*'
+    }
+))
+dotenv.config(
+    {
+        path: './.env'
     }
 )
 connectDb()
