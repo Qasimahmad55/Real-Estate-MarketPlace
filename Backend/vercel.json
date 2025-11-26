@@ -8,8 +8,8 @@
     ],
     "routes": [
         {
-            "src": "/Backend/(.*)",
-            "dest": "/index.js"
+            "src": "/(.*)", 
+            "dest": "Backend/index.js" 
         }
     ]
 }
