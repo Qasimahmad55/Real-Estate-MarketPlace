@@ -10,7 +10,7 @@ import cors from 'cors'
 // import path from 'path'
 app.use(cors(
     {
-        origin: '*'
+        origin: 'https://real-estate-client-gold.vercel.app'
     }
 ))
 dotenv.config(
